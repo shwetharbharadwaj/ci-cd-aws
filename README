@@ -1,0 +1,18 @@
+# My Portfolio - AWS CI/CD Project
+
+This is a personal portfolio website that demonstrates automated deployment using AWS CI/CD services.
+
+## Architecture
+- **Source Control:** GitHub
+- **CI/CD:** AWS CodePipeline + CodeBuild
+- **Hosting:** Amazon S3
+- **CDN:** CloudFront (optional)
+
+## Deployment
+Every push to the `main` branch triggers an automatic deployment to AWS.
+
+## Local Development
+Simply open `index.html` in your browser.
+
+## Version History
+- v1.0 - Initial release

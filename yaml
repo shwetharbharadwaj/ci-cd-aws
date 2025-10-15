@@ -1,0 +1,42 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo "Installation phase - installing dependencies"
+      - npm --version || echo "npm not required for static site"
+      
+  pre_build:
+    commands:
+      - echo "Pre-build phase started on `date`"
+      - echo "Running tests..."
+      - |
+        if [ -f "index.html" ]; then
+          echo "✓ index.html found"
+        else
+          echo "✗ index.html not found"
+          exit 1
+        fi
+      
+  build:
+    commands:
+      - echo "Build phase started on `date`"
+      - echo "Building static website..."
+      - echo "No compilation needed for static site"
+      
+  post_build:
+    commands:
+      - echo "Post-build phase started on `date`"
+      - echo "Build completed successfully!"
+      - ls -la
+
+artifacts:
+  files:
+    - '**/*'
+  name: portfolio-build-artifact
+
+cache:
+  paths:
+    - 'node_modules/**/*'
